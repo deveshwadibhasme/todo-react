@@ -27,7 +27,12 @@ const App = () => {
     setCompletedTask(newCompletedTasks)
   }
 
-  console.log(completedTask);
+  const handleEditTask = (id, newText) => {
+    setTask(tasks.map(task => task.id === id ? { ...task, text: newText } : task));
+  };
+
+  console.log(tasks);
+
 
 
   return (
@@ -39,7 +44,7 @@ const App = () => {
           <h3 className='text-center m-1 font-semibold font-serif text-lg '>Your Task</h3>
           <ul className='p-2 flex flex-col gap-2 overflow-y-scroll max-h-96'>
             {tasks.map((task) => (
-              <PendingTaskList addToComplete={addToComplete} task={task} key={task.id} deleteToDo={deleteToDo} />
+              <PendingTaskList handleEditTask={handleEditTask} addToComplete={addToComplete} task={task} key={task.id} deleteToDo={deleteToDo} />
             ))}
           </ul>
         </div>
