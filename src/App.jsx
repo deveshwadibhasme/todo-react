@@ -23,7 +23,7 @@ const App = () => {
   }
 
   const deleteCompleteToDo = (id) => {
-    const newCompletedTasks = completedTask.filter(t => t.id!== id)
+    const newCompletedTasks = completedTask.filter(t => t.id !== id)
     setCompletedTask(newCompletedTasks)
   }
 
@@ -31,13 +31,9 @@ const App = () => {
     setTask(tasks.map(task => task.id === id ? { ...task, text: newText } : task));
   };
 
-  console.log(tasks);
-
-
-
   return (
     <div className='mx-auto max-w-screen-xl w-full min-h-screen bg-[url(../src/assets/bg-img.png)] bg-[60%_90%] bg-no-repeat'>
-      <h1 className='text-3xl font-bold font-serif ml-2'>My To Do List</h1> 
+      <h1 className='text-3xl font-bold font-serif ml-2'>My To Do List</h1>
       <TaskInput setToDo={setToDo} />
       <div className='flex justify-around flex-col md:flex-row w-[80%] mt-5 mx-auto gap-y-5'>
         <div className='bg-orange-500/30 max-w-80 w-full min-h-64 backdrop-blur-sm'>
@@ -52,7 +48,7 @@ const App = () => {
           <h3 className='text-center m-1 font-semibold font-serif text-lg'>Completed Task</h3>
           <ul className='overflow-y-scroll max-h-96'>
             {completedTask.map((task) => (
-              <CompletedTaskList deleteToDo={deleteCompleteToDo} completedTask={task} />
+              <CompletedTaskList key={task.id} deleteToDo={deleteCompleteToDo} completedTask={task} />
             ))
             }
           </ul>
