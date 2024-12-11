@@ -8,6 +8,7 @@ const TaskInput = ({ setToDo }) => {
     e.preventDefault()
     if (value) {
       setToDo(value)
+      setValue("");
     } else {
       alert('Please enter a task!')
     }
@@ -25,6 +26,7 @@ const TaskInput = ({ setToDo }) => {
           <input id="task-input"
             name='task-input'
             type="text"
+            autoFocus
             onChange={(e) => setValue(e.target.value)}
             value={value}
             className='outline-none p-2 max-w-60 w-full rounded-md'
