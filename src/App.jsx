@@ -1,4 +1,4 @@
-
+import { motion } from "motion/react"
 import TaskInput from './component/TaskInput';
 import PendingTaskList from './component/PendingTask'
 import CompletedTaskList from './component/CompletedTask'
@@ -35,7 +35,11 @@ const App = () => {
     <div className='mx-auto max-w-screen-xl w-full min-h-screen bg-[url(../src/assets/bg-img.png)] bg-[60%_90%] bg-no-repeat'>
       <h1 className='text-3xl font-bold font-serif ml-2'>My To Do List</h1>
       <TaskInput setToDo={setToDo} />
-      <div className='flex justify-around flex-col md:flex-row w-[80%] mt-5 mx-auto gap-y-5'>
+      <motion.div
+        initial={{ y: 30 , opacity: 0.2 }}
+        animate={{ y: 0 , opacity: 1}}
+        transition={{ duration: 1 }}
+       className='flex justify-around flex-col md:flex-row w-[80%] mt-5 mx-auto gap-y-5'>
         <div className='bg-orange-500/30 max-w-80 w-full min-h-64 backdrop-blur-sm'>
           <h3 className='text-center m-1 font-semibold font-serif text-lg '>Your Task</h3>
           <ul className='p-2 flex flex-col gap-2 overflow-y-scroll max-h-96'>
@@ -53,7 +57,7 @@ const App = () => {
             }
           </ul>
         </div>
-      </div>
+      </motion.div>
     </div>
   )
 }
