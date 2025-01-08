@@ -11,9 +11,9 @@ const CompletedTask = ({ completedTask, deleteToDo }) => {
       animate={{ x: 0 }}
       whileHover={{ scale: 1.05 }}
       onClick={() => deleteToDo(completedTask.id)} key={completedTask.id} className='bg-orange-600 mb-2 p-2 mx-auto cursor-pointer flex gap-1 w-[90%] min-h-12 items-center rounded-xl'>
-      <FontAwesomeIcon icon={faCircleCheck} />
+      <FontAwesomeIcon className='text-white' icon={faCircleCheck} />
       <p className='ml-2 cursor-pointer outline-none max-h-20 text-sm h-6 min-h-6 max-w-56 w-full text-white'>{completedTask.text}</p>
-      <FontAwesomeIcon icon={faTrash} />
+      <FontAwesomeIcon  className='text-white' icon={faTrash} />
     </motion.li>
   )
 }

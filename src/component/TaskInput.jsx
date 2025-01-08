@@ -16,7 +16,6 @@ const TaskInput = ({ setToDo }) => {
 
   return (
     <div className='max-w-96 min-h-28 p-2 rounded-3xl mx-auto relative top-5'>
-      <marquee behavior="smooth" direction="left">Local Storage is not Developed Yet i.e Your Task is removed after your exit..[ Developing Soon..]</marquee>
       <form className='flex w-full flex-col p-2 font-mono' onSubmit={handleSubmit} name='task-input'>
         <label htmlFor="task-input"
           className='mx-auto text-xl mb-2'>

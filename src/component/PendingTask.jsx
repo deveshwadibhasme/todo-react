@@ -34,6 +34,7 @@ const PendingLTask = ({ task, deleteToDo, addToComplete, handleEditTask }) => {
       </textarea>
       <FontAwesomeIcon
         className='hover:text-white text-lg'
+        style={{ color: (read === false) ? 'white' : 'initial' }}
         onClick={(e) => { handleEdit(e) }}
         key={crypto.randomUUID()}
         // style={{ color:() ? 'white' : 'initial' }}

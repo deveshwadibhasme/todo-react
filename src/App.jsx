@@ -2,7 +2,7 @@ import { motion } from "motion/react"
 import TaskInput from './component/TaskInput';
 import PendingTaskList from './component/PendingTask'
 import CompletedTaskList from './component/CompletedTask'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const App = () => {
 
@@ -30,6 +30,19 @@ const App = () => {
   const handleEditTask = (id, newText) => {
     setTask(tasks.map(task => task.id === id ? { ...task, text: newText } : task));
   };
+
+  useEffect(() => {
+    const storedTasks = JSON.parse(localStorage.getItem('tasks'));
+    const storedCompletedTasks = JSON.parse(localStorage.getItem('completedTasks'));
+    if (storedTasks) setTask(storedTasks);
+    if (storedCompletedTasks) setCompletedTask(storedCompletedTasks);
+  }, []);
+
+
+  useEffect(() => {
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+    localStorage.setItem('completedTasks', JSON.stringify(completedTask));
+  }, [tasks, completedTask]);
 
   return (
     <div className='mx-auto max-w-screen-xl w-full min-h-screen bg-[url(../src/assets/bg-img.png)] bg-[60%_90%] bg-no-repeat'>
